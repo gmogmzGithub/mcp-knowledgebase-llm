@@ -1,0 +1,42 @@
+[
+  {
+    "question": "What is MCP?",
+    "answer": "MCP (Model Context Protocol) is an open protocol that standardizes how applications provide context to LLMs (Large Language Models). It's often described as a 'USB-C port for AI applications' - just as USB-C provides a standardized way to connect devices to various peripherals, MCP provides a standardized way to connect AI models to different data sources and tools."
+  },
+  {
+    "question": "What are the main components of MCP architecture?",
+    "answer": "MCP follows a client-server architecture with four main components: 1) MCP Hosts: Programs like Claude Desktop, IDEs, or AI tools that want to access data through MCP; 2) MCP Clients: Protocol clients that maintain 1:1 connections with servers; 3) MCP Servers: Lightweight programs that expose specific capabilities through the standardized Model Context Protocol; 4) Data Sources: Both local data sources (files, databases) and remote services (external APIs) that MCP servers can access."
+  },
+  {
+    "question": "What are the benefits of using MCP?",
+    "answer": "MCP helps build agents and complex workflows on top of LLMs by providing: 1) A growing list of pre-built integrations that your LLM can directly plug into; 2) The flexibility to switch between LLM providers and vendors; 3) Best practices for securing your data within your infrastructure. It standardizes how AI models interact with data sources and tools."
+  },
+  {
+    "question": "What are MCP transports?",
+    "answer": "MCP transports are the communication mechanisms that enable MCP clients and servers to exchange messages. They define how data is transmitted between components in the MCP ecosystem. Common transport options include stdio (standard input/output) for local processes and SSE (Server-Sent Events) for network communication between clients and servers."
+  },
+  {
+    "question": "How do MCP tools work?",
+    "answer": "MCP tools enable LLMs to perform actions through your server. Tools are functions that can be exposed to LLMs, allowing them to execute specific operations like retrieving data, calculating values, or interacting with external systems. Each tool has a name, description, input schema, and output schema, making it easy for LLMs to understand how to use them and what to expect in return."
+  },
+  {
+    "question": "How do I create an MCP server?",
+    "answer": "To create an MCP server, you can use one of the available SDKs (Python, JavaScript, C#). A basic MCP server implementation involves: 1) Importing the appropriate MCP server library; 2) Creating a server instance with a name and configuration; 3) Defining tools or resources the server will expose; 4) Specifying a transport method (stdio or SSE); 5) Starting the server. The FastMCP class in Python makes this process particularly straightforward."
+  },
+  {
+    "question": "What's the difference between stdio and SSE transports in MCP?",
+    "answer": "In MCP, stdio (standard input/output) transport is used for local process communication where the client and server run on the same machine, with messages passed through standard input and output streams. SSE (Server-Sent Events) transport enables network communication over HTTP, allowing clients to connect to remote servers. Stdio is simpler for local development, while SSE is better for distributed systems where servers might run on different machines than clients."
+  },
+  {
+    "question": "How do I connect an MCP client to a server?",
+    "answer": "To connect an MCP client to a server: 1) Initialize the appropriate client for your transport (stdio_client or sse_client); 2) Create a ClientSession using the read and write streams from the transport; 3) Call session.initialize() to establish the connection; 4) Use session methods like list_tools() and call_tool() to interact with the server. The connection process varies slightly depending on whether you're using stdio or SSE transport."
+  },
+  {
+    "question": "How do MCP resources differ from tools?",
+    "answer": "In MCP, resources expose data and content from your servers to LLMs, while tools enable LLMs to perform actions. Resources are static or dynamic content that LLMs can reference (like databases, documents, or knowledge bases), whereas tools are functions that LLMs can call to perform operations (like calculations, API calls, or data processing). Resources provide information, while tools provide capabilities."
+  },
+  {
+    "question": "Where can I get help with MCP issues?",
+    "answer": "For help with MCP: 1) For bug reports and feature requests related to the MCP specification, SDKs, or documentation, create a GitHub issue at https://github.com/modelcontextprotocol; 2) For discussions about the MCP specification, use the specification discussions at https://github.com/modelcontextprotocol/specification/discussions; 3) For discussions about other MCP components, use the organization discussions at https://github.com/orgs/modelcontextprotocol/discussions; 4) For issues with Claude.app and claude.ai's MCP integration, see Anthropic's support guide."
+  }
+]
